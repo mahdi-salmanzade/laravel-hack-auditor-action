@@ -1,0 +1,34 @@
+# Copy this file to .github/workflows/security-scan.yml in your Laravel project.
+
+name: Security Scan
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  hack-auditor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # full history needed for --diff
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+
+      - name: Install Composer dependencies
+        run: composer install --no-interaction --prefer-dist
+
+      - name: Run Hack Auditor
+        uses: mahdi-salmanzade/hack-auditor-action@v1
+        with:
+          api-key: ${{ secrets.ANTHROPIC_API_KEY }}
+          provider: anthropic       # or: openai, gemini
+          severity: medium          # ignore low-severity findings
+          fail-on: high             # block the PR if high/critical found
