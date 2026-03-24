@@ -5,7 +5,7 @@
 <h3 align="center">AI security scanning for every pull request.</h3>
 
 <p align="center">
-  <a href="https://github.com/mahdi-salmanzade/hack-auditor-action"><img src="https://img.shields.io/badge/GitHub%20Action-v1-2088FF?logo=github-actions&logoColor=white" alt="GitHub Action"></a>
+  <a href="https://github.com/mahdi-salmanzade/laravel-hack-auditor-action"><img src="https://img.shields.io/badge/GitHub%20Action-v1-2088FF?logo=github-actions&logoColor=white" alt="GitHub Action"></a>
   <a href="https://github.com/mahdi-salmanzade/laravel-hack-auditor"><img src="https://img.shields.io/packagist/v/mahdisphp/laravel-hack-auditor" alt="Package Version"></a>
   <a href="https://github.com/mahdi-salmanzade/laravel-hack-auditor/blob/main/LICENSE.md"><img src="https://img.shields.io/github/license/mahdi-salmanzade/laravel-hack-auditor" alt="License"></a>
 </p>
@@ -14,25 +14,9 @@ Scans only the files changed in a PR, posts findings as **inline annotations** o
 
 ## What your PR will look like
 
-**When vulnerabilities are found:**
-
-> ## 🔴 Hack Auditor Security Report
->
-> **Score:** 62/100 | **Findings:** 3 (1 critical, 1 high, 1 medium)
->
-> | Severity | Type | File | Line |
-> |----------|------|------|------|
-> | 🔴 Critical | SQL Injection | `app/Http/Controllers/UserController.php` | L42 |
-> | 🟠 High | IDOR | `app/Http/Controllers/OrderController.php` | L18 |
-> | 🟡 Medium | Missing Rate Limiting | `routes/api.php` | L31 |
->
-> *Each finding expands to show OWASP category, evidence, and a copy-paste fix.*
-
-**When the code is clean:**
-
-> ## ✅ Hack Auditor Security Report
->
-> **No vulnerabilities found** — Score: 94/100
+<p align="center">
+  <img src="laravel-hack-auditor-action.png" width="700" alt="Hack Auditor PR comment showing vulnerability findings">
+</p>
 
 Critical and high findings also appear as **error annotations** inline in the "Files changed" tab — developers see them without leaving the review flow.
 
@@ -66,7 +50,7 @@ jobs:
 
       - run: composer install --no-interaction --prefer-dist
 
-      - uses: mahdi-salmanzade/hack-auditor-action@v1
+      - uses: mahdi-salmanzade/laravel-hack-auditor-action@v1
         with:
           api-key: ${{ secrets.ANTHROPIC_API_KEY }}
 ```
@@ -113,7 +97,7 @@ The action supports three AI providers. Set **one** secret:
 | Google Gemini | `GEMINI_API_KEY` | `provider: gemini` |
 
 ```yaml
-- uses: mahdi-salmanzade/hack-auditor-action@v1
+- uses: mahdi-salmanzade/laravel-hack-auditor-action@v1
   with:
     api-key: ${{ secrets.OPENAI_API_KEY }}
     provider: openai
@@ -143,7 +127,7 @@ fail-on: low
 ### Only scan controllers, fail on high+
 
 ```yaml
-- uses: mahdi-salmanzade/hack-auditor-action@v1
+- uses: mahdi-salmanzade/laravel-hack-auditor-action@v1
   with:
     api-key: ${{ secrets.ANTHROPIC_API_KEY }}
     severity: medium
@@ -154,7 +138,7 @@ fail-on: low
 ### Use outputs in a later step
 
 ```yaml
-- uses: mahdi-salmanzade/hack-auditor-action@v1
+- uses: mahdi-salmanzade/laravel-hack-auditor-action@v1
   id: audit
   with:
     api-key: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -169,7 +153,7 @@ fail-on: low
 ### Budget token usage
 
 ```yaml
-- uses: mahdi-salmanzade/hack-auditor-action@v1
+- uses: mahdi-salmanzade/laravel-hack-auditor-action@v1
   with:
     api-key: ${{ secrets.ANTHROPIC_API_KEY }}
     token-limit: '50000'
@@ -178,7 +162,7 @@ fail-on: low
 ### Skip install (already a dev dependency)
 
 ```yaml
-- uses: mahdi-salmanzade/hack-auditor-action@v1
+- uses: mahdi-salmanzade/laravel-hack-auditor-action@v1
   with:
     api-key: ${{ secrets.ANTHROPIC_API_KEY }}
     install-package: 'false'
