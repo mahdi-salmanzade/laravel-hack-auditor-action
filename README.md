@@ -84,7 +84,7 @@ Use these in downstream steps with `${{ steps.<id>.outputs.<name> }}`:
 | `high` | `2` | High findings |
 | `medium` | `1` | Medium findings |
 | `low` | `0` | Low findings |
-| `json-path` | `.hack-auditor-results.json` | Path to raw JSON results |
+| `json_path` | `.hack-auditor-results.json` | Path to raw JSON results |
 
 ## Provider setup
 
