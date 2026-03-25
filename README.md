@@ -7,7 +7,7 @@
 <p align="center">
   <a href="https://github.com/mahdi-salmanzade/laravel-hack-auditor-action"><img src="https://img.shields.io/badge/GitHub%20Action-v1-2088FF?logo=github-actions&logoColor=white" alt="GitHub Action"></a>
   <a href="https://github.com/mahdi-salmanzade/laravel-hack-auditor"><img src="https://img.shields.io/packagist/v/mahdisphp/laravel-hack-auditor" alt="Package Version"></a>
-  <a href="https://github.com/mahdi-salmanzade/laravel-hack-auditor/blob/main/LICENSE.md"><img src="https://img.shields.io/github/license/mahdi-salmanzade/laravel-hack-auditor" alt="License"></a>
+  <a href="https://github.com/mahdi-salmanzade/laravel-hack-auditor/blob/main/LICENSE"><img src="https://img.shields.io/github/license/mahdi-salmanzade/laravel-hack-auditor" alt="License"></a>
 </p>
 
 Scans only the files changed in a PR, posts findings as **inline annotations** on the exact vulnerable lines, and leaves a summary comment — all in under a minute.
