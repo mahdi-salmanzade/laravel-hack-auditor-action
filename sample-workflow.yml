@@ -26,7 +26,7 @@ jobs:
         run: composer install --no-interaction --prefer-dist
 
       - name: Run Hack Auditor
-        uses: mahdi-salmanzade/hack-auditor-action@v1
+        uses: mahdi-salmanzade/laravel-hack-auditor-action@v1
         with:
           api-key: ${{ secrets.ANTHROPIC_API_KEY }}
           provider: anthropic       # or: openai, gemini
